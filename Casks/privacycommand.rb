@@ -2,8 +2,8 @@ cask "privacycommand" do
   # Bump on every release. The CI workflow prints the new sha256
   # alongside the DMG attachment URL — paste both in here, commit
   # against main, push.
-  version "0.1.2"
-  sha256 "313b1ea43680c43efe6281f1c2bae7705c476562db0524ed6fffdc2d042b6c95"
+  version "0.1.3"
+  sha256 "a134fcf1baedcf21c2874843d6c93e43e8e56e48af76ca535658e7ae54deb889"
 
   url "https://github.com/privacykey/privacycommand/releases/download/v#{version}/privacycommand-#{version}.dmg"
   name "privacycommand"
