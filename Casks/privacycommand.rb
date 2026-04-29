@@ -3,7 +3,7 @@ cask "privacycommand" do
   # alongside the DMG attachment URL — paste both in here, commit
   # against main, push.
   version "0.1.1"
-  sha256 "sha256:ae55cf884fb556e416764a36835475812f1c7e1bffaa8416d881af5ebee45d61"
+  sha256 "ae55cf884fb556e416764a36835475812f1c7e1bffaa8416d881af5ebee45d61"
 
   url "https://github.com/privacykey/privacycommand/releases/download/v#{version}/privacycommand-#{version}.dmg"
   name "privacycommand"
