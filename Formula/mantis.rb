@@ -9,22 +9,22 @@ class Mantis < Formula
   on_macos do
     on_arm do
       url "https://github.com/privacykey/mantis/releases/download/cli-v#{version}/mantis-darwin-arm64.tar.gz"
-      sha256 "fc2dde4305fcd22bdd629e997c3cca2c1a189f9934f18f83b5e070818c993a61"
+      sha256 "7ceda3ecae38492e747a55b5848b7a23347b1e6622ed65aff50a445b693de80f"
     end
     on_intel do
       url "https://github.com/privacykey/mantis/releases/download/cli-v#{version}/mantis-darwin-x64.tar.gz"
-      sha256 "57d2a2eacdefd29b28a3453ef50ab3000b89f8c0848235249ada034b84624149"
+      sha256 "542df5b558ad89f7d00cc6bec777f34948db039fbc9416cf224ddebc4110ba28"
     end
   end
 
   on_linux do
     on_arm do
       url "https://github.com/privacykey/mantis/releases/download/cli-v#{version}/mantis-linux-arm64.tar.gz"
-      sha256 "7290000c87b396b3786c29cc7a4cd5aa25ac1687cd284e17fc3fef0da58c52ff"
+      sha256 "dc53cd000fabb6e4a7f7308c4b1fa243f46fb36b4d1b507e6d297fef819c8e03"
     end
     on_intel do
       url "https://github.com/privacykey/mantis/releases/download/cli-v#{version}/mantis-linux-x64.tar.gz"
-      sha256 "8cf4bb0b616e71a1c7b5a544c17d9a06d499850a8c84d253c6686bf2d03a5e8f"
+      sha256 "1404b0afb9c5157df0afe96e1ef2ea9c5c7978f6d0a81c69a9f58df3de983b55"
     end
   end
 
