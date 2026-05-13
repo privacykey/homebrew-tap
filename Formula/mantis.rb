@@ -3,33 +3,34 @@
 class Mantis < Formula
   desc "Command-line client for Mantis — manage keys and watch hits from the terminal"
   homepage "https://github.com/privacykey/mantis"
-  version "0.1.2"
+  version "0.1.3"
   license "MIT"
 
   on_macos do
     on_arm do
       url "https://github.com/privacykey/mantis/releases/download/cli-v#{version}/mantis-darwin-arm64.tar.gz"
-      sha256 "57e6345d685d2154b256fe312e01e2d49e160a6a4b88985e0c2daf24d798801c"
+      sha256 "af554afad6f87f1a4f5fd3e9112086cfa52d24f9c57ec320886091bf678dd57d"
     end
     on_intel do
       url "https://github.com/privacykey/mantis/releases/download/cli-v#{version}/mantis-darwin-x64.tar.gz"
-      sha256 "3669815cc19e8c95130677384e7fff3ebdd4b76c5169fc120c0c9ead52e7cf01"
+      sha256 "811d22665922282272a7c266d4b211a001ddae63f9de545c0a3ca91d12e63ec8"
     end
   end
 
   on_linux do
     on_arm do
       url "https://github.com/privacykey/mantis/releases/download/cli-v#{version}/mantis-linux-arm64.tar.gz"
-      sha256 "800c03f7589cb97f9307381a0db352b9d4e98d8a4f19ea15d075fef3ad8af927"
+      sha256 "1012a0072aa40810c958d2574af6bf9220e36ef9d37a73565b63c3ca9141ede2"
     end
     on_intel do
       url "https://github.com/privacykey/mantis/releases/download/cli-v#{version}/mantis-linux-x64.tar.gz"
-      sha256 "4e2737b8f501b30ef0aff4d1bbae3cf079208e8aa3de04254225a9b7324b112e"
+      sha256 "545b73b7ecc27fca6601a3997e93c64c417e3d5c35e04401b4b1a461b090f4f5"
     end
   end
 
-def install
+  def install
     bin.install "mantis"
+    man1.install "share/man/man1/mantis.1"
 
     # Shell completions — `mantis completion <shell>` writes a ready-to-source
     # script. Homebrew adds these directories to fpath / bash-completion / fish
@@ -42,5 +43,6 @@ def install
   test do
     assert_match version.to_s, shell_output("#{bin}/mantis --version")
     assert_match "#compdef mantis", (zsh_completion/"_mantis").read
+    assert_match "MANTIS 1", (man1/"mantis.1").read
   end
 end
