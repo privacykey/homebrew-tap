@@ -3,28 +3,28 @@
 class Mantis < Formula
   desc "Command-line client for Mantis — manage keys and watch hits from the terminal"
   homepage "https://github.com/privacykey/mantis"
-  version "0.1.4"
+  version "0.1.5"
   license "MIT"
 
   on_macos do
     on_arm do
       url "https://github.com/privacykey/mantis/releases/download/cli-v#{version}/mantis-darwin-arm64.tar.gz"
-      sha256 "525ed9d9eb9188ce171584758c148515dbc543c8577512bc72fcaf56085600c0"
+      sha256 "a1fb9978203e8989dc38b5c0a150c3231b038cc4d230939abafa1f17bfe4b63e"
     end
     on_intel do
       url "https://github.com/privacykey/mantis/releases/download/cli-v#{version}/mantis-darwin-x64.tar.gz"
-      sha256 "3a959fa0495230dcb44729da5ca1b389d71d31eb74aa2376e3e640f570f39d65"
+      sha256 "f30d2e2c410fb03689fe33c1931371400089fedc74d2df456a4264ba6a57c202"
     end
   end
 
   on_linux do
     on_arm do
       url "https://github.com/privacykey/mantis/releases/download/cli-v#{version}/mantis-linux-arm64.tar.gz"
-      sha256 "2898e6a16aea184735dd4a1ade9bfb635d9390b04a0603cb7fa278d38ba2cfa7"
+      sha256 "e4f416b8d3b106bca1923b69304f9c0ba5e08cf4e7197661e12a723fb3e28768"
     end
     on_intel do
       url "https://github.com/privacykey/mantis/releases/download/cli-v#{version}/mantis-linux-x64.tar.gz"
-      sha256 "e065db7411f8959b361eaed613d7424464c2cfe1b660569ab810129cba9c7053"
+      sha256 "ee6d5d34be9fc5f6fffd4358f12a51ac5c238ee6457218be6c2e9ec2fcccbcbe"
     end
   end
 
