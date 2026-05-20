@@ -1,9 +1,9 @@
 cask "privacytracker" do
   arch arm: "aarch64", intel: "x64"
 
-  version "0.1.0"
-  sha256 arm:   "2b90d5382b659cd517d26345971a018dba4690dbbc33dd4ab703989baa01c508",
-         intel: "4a444f606bd73736598be572331e7f89e41c2435b24427735389b6f48bd496ec"
+  version "0.1.1"
+  sha256 arm:   "9ff9ce0a12e70669286a7054d4a44d553697f517f442a2c48534e42e5b9c1788",
+         intel: "6f921c408fcfa3a42a63ee446215a1a73f58c15b65bbee87fce10a5a60e3322c"
 
   url "https://github.com/privacykey/privacytracker/releases/download/v#{version}/privacytracker_#{version}_#{arch}.dmg",
       verified: "github.com/privacykey/privacytracker/"
