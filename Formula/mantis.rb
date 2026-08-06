@@ -35,9 +35,7 @@ class Mantis < Formula
     # Shell completions — `mantis completion <shell>` writes a ready-to-source
     # script. Homebrew adds these directories to fpath / bash-completion / fish
     # completion path automatically.
-    (bash_completion/"mantis").write Utils.safe_popen_read(bin/"mantis", "completion", "bash")
-    (zsh_completion/"_mantis").write Utils.safe_popen_read(bin/"mantis", "completion", "zsh")
-    (fish_completion/"mantis.fish").write Utils.safe_popen_read(bin/"mantis", "completion", "fish")
+    generate_completions_from_executable(bin/"mantis", "completion")
   end
 
   test do
