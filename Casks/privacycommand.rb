@@ -1,13 +1,13 @@
 cask "privacycommand" do
-  # Bump on every release. The CI workflow prints the new sha256
-  # alongside the DMG attachment URL — paste both in here, commit
-  # against main, push.
+  # Bumped on every release: privacycommand's release CI updates
+  # version/sha256 and opens a PR against this tap for a human to
+  # review and merge. See README "How updates land here".
   version "0.1.5"
   sha256 "aadfc8157741e99169c854ce9dfe9f25f6be391a4d425e5b859fbed7697961cf"
 
   url "https://github.com/privacykey/privacycommand/releases/download/v#{version}/privacycommand-#{version}.dmg"
   name "privacycommand"
-  desc "Inspect macOS app bundles for privacy and security findings"
+  desc "Inspect app bundles for privacy and security findings"
   homepage "https://github.com/privacykey/privacycommand"
 
   # Sparkle's appcast lives on gh-pages. Linking it here gives Cask
@@ -17,6 +17,8 @@ cask "privacycommand" do
     url "https://privacykey.github.io/privacycommand/appcast.xml"
     strategy :sparkle
   end
+
+  depends_on :macos
 
   app "privacycommand.app"
 
