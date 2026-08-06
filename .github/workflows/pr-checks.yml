@@ -1,0 +1,55 @@
+name: PR checks
+
+# Style and syntax gate for the tap. Runs on every PR that touches a cask
+# or formula — including the automated bump PRs opened by each app repo's
+# release workflow (see README "How updates land here").
+on:
+  pull_request:
+    paths:
+      - "Casks/**"
+      - "Formula/**"
+      - ".github/workflows/pr-checks.yml"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  style:
+    name: brew style + ruby syntax
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      HOMEBREW_NO_AUTO_UPDATE: "1"
+      HOMEBREW_NO_ANALYTICS: "1"
+      HOMEBREW_NO_ENV_HINTS: "1"
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+
+      # Cheap fail-fast pass: a plain parse catches broken Ruby before we
+      # spend time bootstrapping Homebrew.
+      - name: Ruby syntax check
+        run: |
+          set -euo pipefail
+          status=0
+          for f in Casks/*.rb Formula/*.rb; do
+            [ -e "$f" ] || continue
+            ruby -c "$f" || status=1
+          done
+          exit "$status"
+
+      # Ubuntu runner images no longer ship Homebrew; the official action
+      # installs it and recognises this checkout as a tap.
+      - name: Set up Homebrew
+        uses: Homebrew/actions/setup-homebrew@master
+        with:
+          test-bot: false
+
+      - name: brew style
+        run: brew style Casks Formula
