@@ -3,28 +3,28 @@
 class Mantis < Formula
   desc "Command-line client for Mantis — manage keys and watch hits from the terminal"
   homepage "https://github.com/privacykey/mantis"
-  version "0.1.6"
+  version "0.2.0"
   license "MIT"
 
   on_macos do
     on_arm do
       url "https://github.com/privacykey/mantis/releases/download/cli-v#{version}/mantis-darwin-arm64.tar.gz"
-      sha256 "3c86f1a285a075fc260e941ec92339c699a7c003b5e3f81f53f91ca0db51bfa6"
+      sha256 "2fbc4e8e4e2dfbbc915fd6ea9e9887ff9b18b78ec0dae76d3e01e479d769720f"
     end
     on_intel do
       url "https://github.com/privacykey/mantis/releases/download/cli-v#{version}/mantis-darwin-x64.tar.gz"
-      sha256 "3494df5d0f39253129e609c3d30c79355c5da837f4adb1d1f94f309433dec4f0"
+      sha256 "30926610bcc30e1acfbf506f1025c6f4c310f10e18720f494d827f519ba44c97"
     end
   end
 
   on_linux do
     on_arm do
       url "https://github.com/privacykey/mantis/releases/download/cli-v#{version}/mantis-linux-arm64.tar.gz"
-      sha256 "f722ea5af8515c13e9219f83df719e52659e961f18f720f423e91a85faa16527"
+      sha256 "89f7a9aa52f318aad804010508a057ce1b63895236aa71626c426a5ab2351b2a"
     end
     on_intel do
       url "https://github.com/privacykey/mantis/releases/download/cli-v#{version}/mantis-linux-x64.tar.gz"
-      sha256 "6ed48063d9d321dfb5f34cb0f15960510407ceaf4337e41e55424aa02d5cd567"
+      sha256 "dd5f56c01917e3d2aeea01e43712ac4817bc4c110f5fc770eb07c9165c581252"
     end
   end
 
@@ -35,7 +35,9 @@ class Mantis < Formula
     # Shell completions — `mantis completion <shell>` writes a ready-to-source
     # script. Homebrew adds these directories to fpath / bash-completion / fish
     # completion path automatically.
-    generate_completions_from_executable(bin/"mantis", "completion")
+    (bash_completion/"mantis").write Utils.safe_popen_read(bin/"mantis", "completion", "bash")
+    (zsh_completion/"_mantis").write Utils.safe_popen_read(bin/"mantis", "completion", "zsh")
+    (fish_completion/"mantis.fish").write Utils.safe_popen_read(bin/"mantis", "completion", "fish")
   end
 
   test do
