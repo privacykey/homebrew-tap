@@ -35,7 +35,7 @@ class Mantis < Formula
     # Shell completions — `mantis completion <shell>` writes a ready-to-source
     # script; the DSL runs it once per shell and installs the output under
     # bash-completion / fpath / fish's completion path.
-    generate_completions_from_executable(bin/"mantis", "completion", shells: [:bash, :zsh, :fish])
+    generate_completions_from_executable(bin/"mantis", "completion")
   end
 
   test do
