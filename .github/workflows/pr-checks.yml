@@ -48,8 +48,6 @@ jobs:
       # installs it and recognises this checkout as a tap.
       - name: Set up Homebrew
         uses: Homebrew/actions/setup-homebrew@main
-        with:
-          test-bot: false
 
       - name: brew style
         run: brew style Casks Formula
