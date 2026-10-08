@@ -7,8 +7,7 @@ cask "privacytracker" do
   sha256 arm:   "98999f1f50d7bdec43cbc7933d8957f15b51f556ff6a7983f77d0c8c81d234f6",
          intel: "939d899cd2504814c02a1f3300c82ba601e6db552a19c374faa7310497b76ec9"
 
-  url "https://github.com/privacykey/privacytracker/releases/download/v#{version}/privacytracker_#{version}_#{arch}.dmg",
-      verified: "github.com/privacykey/privacytracker/"
+  url "https://github.com/privacykey/privacytracker/releases/download/v#{version}/privacytracker_#{version}_#{arch}.dmg"
   name "privacytracker"
   desc "Monitor, track, and get alerted when iOS apps change their privacy labels"
   homepage "https://github.com/privacykey/privacytracker"
@@ -19,7 +18,7 @@ cask "privacytracker" do
   end
 
   auto_updates true
-  depends_on macos: :big_sur
+  depends_on :macos
 
   app "privacytracker.app"
 

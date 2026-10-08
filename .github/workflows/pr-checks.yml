@@ -47,9 +47,7 @@ jobs:
       # Ubuntu runner images no longer ship Homebrew; the official action
       # installs it and recognises this checkout as a tap.
       - name: Set up Homebrew
-        uses: Homebrew/actions/setup-homebrew@master
-        with:
-          test-bot: false
+        uses: Homebrew/actions/setup-homebrew@main
 
       - name: brew style
         run: brew style Casks Formula
