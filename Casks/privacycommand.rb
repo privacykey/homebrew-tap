@@ -2,8 +2,8 @@ cask "privacycommand" do
   # Bumped on every release: privacycommand's release CI updates
   # version/sha256 and opens a PR against this tap for a human to
   # review and merge. See README "How updates land here".
-  version "0.2.1"
-  sha256 "991f190d153712dc66affd5f5d3334a548eb6ff08f1b411c292787b5ebc6c3ed"
+  version "0.2.2"
+  sha256 "4b85765ccbc757d7a378f75b2b76dd713fa48eadecb773e13639adc7c72265af"
 
   url "https://github.com/privacykey/privacycommand/releases/download/v#{version}/privacycommand-#{version}.dmg"
   name "privacycommand"
